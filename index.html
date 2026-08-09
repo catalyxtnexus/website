@@ -1888,6 +1888,25 @@ transform:translateY(-60px);
 }
 
 }
+@media (max-width:600px){
+    .hero-image{height:260px;border-radius:16px}
+    .hero-image img{width:100%;height:100%;object-fit:cover}
+    .hero h1{font-size:36px}
+    .hero p{font-size:16px}
+    .hero-grid{gap:28px}
+    nav{padding:0 12px}
+    .logo{font-size:14px}
+    .logo img{width:24px;height:24px}
+    .member{width:100%}
+    .member-img{width:100%;height:auto;border-radius:12px}
+    .member-img img{width:100%;height:auto;object-fit:cover}
+    .contact-icon svg{width:22px;height:22px}
+    .social-link svg{width:16px;height:16px}
+    .modal-content{padding:18px;max-width:96%}
+    .creator-card{padding:30px}
+    .cta{padding:30px}
+    .progress-bar{height:3px}
+}
         </style>
         <!-- Plans modal styles -->
         <style>
@@ -2435,17 +2454,33 @@ built by seasoned hands.
                 </div>
                 <div class="contact-grid">
                     <a href="mailto:catalyxtnexus@gmail.com" class="contact-card">
-                        <div class="contact-icon">✉</div>
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 8.5v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M3 8.5L12 13l9-4.5"></path>
+                            </svg>
+                        </div>
                         <h3>Email</h3>
                         <p>catalyxtnexus@gmail.com</p>
                     </a>
                     <a href="https://www.instagram.com/catalyxtnexus?igsh=eTVvZHJoc3d6aW43&utm_source=qr" target="_blank" rel="noreferrer" class="contact-card">
-                        <div class="contact-icon">📷</div>
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="2.5" y="3.5" width="19" height="17" rx="5"></rect>
+                                <path d="M16 11.37a4 4 0 1 1-7.99 0 4 4 0 0 1 7.99 0z"></path>
+                                <path d="M17.5 6.5h.01"></path>
+                            </svg>
+                        </div>
                         <h3>Instagram</h3>
                         <p>@catalyxtnexus</p>
                     </a>
                     <a href="https://chat.whatsapp.com/K3wQhvQkEYPDJ6eP6T7lKI?s=cl&p=i&ilr=1&amv=1" target="_blank" rel="noreferrer" class="contact-card">
-                        <div class="contact-icon">💬</div>
+                        <div class="contact-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                <path d="M17.5 11a4.5 4.5 0 0 1-8 3.5L9 14"></path>
+                            </svg>
+                        </div>
                         <h3>WhatsApp</h3>
                         <p>Message Us</p>
                     </a>
@@ -2469,9 +2504,20 @@ built by seasoned hands.
                     matched creators for authentic, high-impact campaigns.
                         </p>
                         <div class="social-links">
-                            <a href="mailto:catalyxtnexus@gmail.com" class="social-link">✉</a>
-                            <a href="https://instagram.com/catalyxtnexus" target="_blank" class="social-link">◎</a>
-                            <a href="https://linkedin.com" target="_blank" class="social-link">◌</a>
+                            <a href="mailto:catalyxtnexus@gmail.com" class="social-link" aria-label="Email">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 8.5v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M3 8.5L12 13l9-4.5"></path>
+                                </svg>
+                            </a>
+                            <a href="https://instagram.com/catalyxtnexus" target="_blank" class="social-link" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="2.5" y="3.5" width="19" height="17" rx="5"></rect>
+                                    <path d="M16 11.37a4 4 0 1 1-7.99 0 4 4 0 0 1 7.99 0z"></path>
+                                    <path d="M17.5 6.5h.01"></path>
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">◌</a>
                         </div>
                     </div>
                     <!-- Navigation -->
@@ -2513,12 +2559,6 @@ built by seasoned hands.
                 </div>
                 <div class="copyright">
                     <p>© 2026 Catalyxt Nexus. All rights reserved.</p>
-                    <p class="made-love">
-                        Built with ❤️ by
-                        <a href="https://dhruvnailwal.me" target="_blank">
-                            Dhruv Nailwal
-                        </a>
-                    </p>
                     <p>Connecting Brands. Empowering Creators.</p>
                 </div>
             </div>
