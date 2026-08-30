@@ -1,3072 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Catalyxt Nexus</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
-:root{
-
---bg:#070912;
---card:#11131b;
---card2:#161922;
-
---primary:#6366f1;
---secondary:#8b5cf6;
-
---white:#ffffff;
---text:#d7d7dd;
---muted:#8f93a2;
-
---border:#232631;
-
---radius:22px;
-
-}
-
-body{
-
-background:var(--bg);
-font-family:'Inter',sans-serif;
-color:white;
-overflow-x:hidden;
-
-}
-
-section{
-
-padding:110px 9%;
-
-}
-
-.container{
-
-max-width:1300px;
-margin:auto;
-
-}
-
-a{
-
-text-decoration:none;
-color:white;
-
-}
-
-img{
-
-max-width:100%;
-
-}
-
-
-body::before{
-
-content:"";
-
-position:fixed;
-
-left:-300px;
-top:-250px;
-
-width:650px;
-height:650px;
-
-background:radial-gradient(circle,
-rgba(99,102,241,.20),
-transparent 70%);
-
-filter:blur(60px);
-
-pointer-events:none;
-
-z-index:-2;
-
-}
-
-body::after{
-
-content:"";
-
-position:fixed;
-
-right:-300px;
-top:-100px;
-
-width:650px;
-height:650px;
-
-background:radial-gradient(circle,
-rgba(139,92,246,.18),
-transparent 70%);
-
-filter:blur(70px);
-
-pointer-events:none;
-
-z-index:-2;
-
-}
-
-
-header{
-
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-
-height:72px;
-
-display:flex;
-
-justify-content:center;
-
-z-index:999;
-
-background:linear-gradient(180deg,rgba(8,10,22,.96),rgba(8,10,22,.90));
-
-backdrop-filter:blur(14px);
-
-border-bottom:1px solid rgba(255,255,255,.04);
-
-}
-
-nav{
-
-width:min(1300px,100%);
-
-display:grid;
-
-grid-template-columns:auto 1fr auto;
-
-align-items:center;
-
-padding:0 28px;
-
-}
-
-.logo{
-
-display:flex;
-align-items:center;
-gap:10px;
-
-font-size:16px;
-
-font-weight:600;
-
-letter-spacing:.01em;
-
-}
-
-.nav-links{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-}
-
-.nav-links{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-}
-
-.nav-links a{
-
-font-size:14px;
-
-color:#9ba0b3;
-
-font-weight:400;
-
-transition:.3s;
-
-}
-
-.nav-links a:hover{
-
-color:#eef0ff;
-
-}
-
-.join-btn{
-
-padding:12px 20px;
-
-border-radius:999px;
-
-background:linear-gradient(
-90deg,
-rgba(100,106,248,.95),
-rgba(143,92,246,.95)
-);
-
-font-weight:700;
-
-font-size:14px;
-
-line-height:1;
-
-transition:.35s;
-
-}
-
-.join-btn:hover{
-
-transform:translateY(-3px);
-
-box-shadow:0 15px 35px rgba(99,102,241,.35);
-
-}
-
-.menu{
-
-display:none;
-
-margin-left:6px;
-
-font-size:30px;
-
-cursor:pointer;
-
-}
-
-
-.hero{
-
-min-height:100vh;
-
-display:flex;
-
-align-items:center;
-
-padding-top:120px;
-
-}
-
-.hero-grid{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:80px;
-
-align-items:center;
-
-}
-
-.badge{
-
-display:inline-flex;
-
-padding:10px 18px;
-
-background:#141722;
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:100px;
-
-color:#a6abbe;
-
-font-size:14px;
-
-margin-bottom:35px;
-
-}
-
-.hero h1{
-
-font-size:74px;
-
-font-weight:900;
-
-line-height:1.05;
-
-margin-bottom:28px;
-
-}
-
-.gradient{
-
-background:linear-gradient(90deg,#5b7cff,#9b5cff);
-background-clip:text;
--webkit-background-clip:text;
-color:transparent;
--webkit-text-fill-color:transparent;
-
-}
-
-.hero p{
-
-font-size:24px;
-
-line-height:1.7;
-
-color:var(--muted);
-
-margin-bottom:42px;
-
-}
-
-.buttons{
-
-display:flex;
-
-gap:18px;
-
-}
-
-.primary{
-
-padding:18px 36px;
-
-border-radius:18px;
-
-background:linear-gradient(
-90deg,
-var(--primary),
-var(--secondary)
-);
-
-font-weight:700;
-
-transition:.35s;
-
-}
-
-.primary:hover{
-
-transform:translateY(-4px);
-
-}
-
-.secondary{
-
-padding:18px 36px;
-
-border:1px solid rgba(255,255,255,.08);
-
-border-radius:18px;
-
-background:#0d1019;
-
-transition:.35s;
-
-}
-
-.secondary:hover{
-
-background:#171b25;
-
-}
-
-.hero-image{
-
-height:520px;
-
-border-radius:32px;
-
-background-image: linear-gradient(180deg,#11183a,#0b0f22);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.hero-image::before{
-
-content:"";
-
-position:absolute;
-
-width:130%;
-height:130%;
-
-background:
-radial-gradient(circle,#74b4ff 2px,transparent 3px);
-
-background-size:45px 45px;
-
-opacity:.15;
-
-animation:move 18s linear infinite;
-
-}
-
-@keyframes move{
-
-from{
-
-transform:translateY(0);
-
-}
-
-to{
-
-transform:translateY(-120px);
-
-}
-
-}
-
-.hero-image::after{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-top:50%;
-
-width:420px;
-height:420px;
-
-transform:translate(-50%,-50%);
-
-background:radial-gradient(circle,
-rgba(99,102,241,.55),
-transparent 70%);
-
-filter:blur(60px);
-
-}
-
-.hero-image img{
-
-position:absolute;
-inset:0;
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-object-position:center;
-
-display:block;
-z-index:1;
-
-}
-
-
-@media(max-width:1000px){
-
-.hero-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.hero h1{
-
-font-size:52px;
-
-}
-
-.hero p{
-
-font-size:18px;
-
-}
-
-.nav-links{
-
-display:none;
-
-position:absolute;
-
-top:72px;
-
-left:0;
-
-width:100%;
-
-background:#0f1119;
-
-flex-direction:column;
-
-padding:30px;
-
-}
-
-.nav-links.show{
-
-display:flex;
-
-}
-
-.menu{
-
-display:block;
-
-}
-
-.join-btn{
-
-display:none;
-
-}
-
-}
-
-/*=========================
-WHY TRUST US
-=========================*/
-
-.section-title{
-text-align:center;
-margin-bottom:70px;
-}
-
-.section-title span{
-display:inline-block;
-font-size:13px;
-letter-spacing:4px;
-color:#9f73ff;
-text-transform:uppercase;
-margin-bottom:18px;
-}
-
-.section-title h2{
-font-size:58px;
-font-weight:800;
-line-height:1.15;
-margin-bottom:22px;
-}
-
-.section-title p{
-max-width:760px;
-margin:auto;
-color:var(--muted);
-font-size:20px;
-line-height:1.8;
-}
-
-.cards-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:28px;
-}
-
-.card{
-
-background:#11131b;
-
-border:1px solid rgba(255,255,255,.06);
-
-border-radius:28px;
-
-padding:36px;
-
-transition:.35s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-border-color:rgba(99,102,241,.35);
-
-box-shadow:0 25px 50px rgba(99,102,241,.15);
-
-}
-
-.icon-box{
-
-width:62px;
-height:62px;
-
-border-radius:18px;
-
-background:linear-gradient(135deg,#5c6cff,#9b5cff);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:28px;
-
-margin-bottom:25px;
-
-}
-
-.card h3{
-
-font-size:28px;
-margin-bottom:18px;
-
-}
-
-.card p{
-
-color:var(--muted);
-font-size:18px;
-line-height:1.7;
-
-}
-
-/*=========================
-ABOUT
-=========================*/
-
-.about{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:80px;
-
-align-items:center;
-
-}
-
-.about-image{
-
-height:620px;
-
-border-radius:35px;
-
-background:linear-gradient(135deg,#20244d,#2d2149);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:28px;
-
-color:#8b8ca3;
-
-}
-
-.about-content span{
-
-color:#9f73ff;
-
-letter-spacing:4px;
-
-font-size:13px;
-
-text-transform:uppercase;
-
-}
-
-.about-content h2{
-
-font-size:60px;
-
-margin:20px 0;
-
-line-height:1.1;
-
-}
-
-.about-content p{
-
-font-size:20px;
-
-line-height:1.9;
-
-color:var(--muted);
-
-margin-bottom:24px;
-
-}
-
-/*=========================
-SERVICES
-=========================*/
-
-.service-grid{
-
-display:grid;
-
-grid-template-columns:repeat(2,1fr);
-
-gap:32px;
-
-}
-
-.service-card{
-
-padding:42px;
-
-background:#11131b;
-
-border-radius:28px;
-
-border:1px solid rgba(255,255,255,.06);
-
-transition:.35s;
-
-}
-
-.service-card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 20px 45px rgba(99,102,241,.15);
-
-}
-
-.service-tag{
-
-display:inline-block;
-
-padding:8px 14px;
-
-background:#1c2030;
-
-border-radius:999px;
-
-color:#9f73ff;
-
-font-size:12px;
-
-letter-spacing:2px;
-
-margin-bottom:20px;
-
-text-transform:uppercase;
-
-}
-
-.service-icon{
-
-width:70px;
-height:70px;
-
-background:linear-gradient(135deg,#6366f1,#8b5cf6);
-
-border-radius:20px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-size:34px;
-
-margin-bottom:25px;
-
-}
-
-.service-card h3{
-
-font-size:36px;
-
-margin-bottom:18px;
-
-}
-
-.service-card p{
-
-color:var(--muted);
-
-font-size:19px;
-
-line-height:1.8;
-
-margin-bottom:30px;
-
-}
-
-.service-btn{
-
-display:inline-block;
-
-padding:16px 28px;
-
-background:linear-gradient(90deg,#6366f1,#8b5cf6);
-
-border-radius:15px;
-
-font-weight:700;
-
-transition:.3s;
-
-}
-
-.service-btn:hover{
-
-transform:translateY(-3px);
-
-}
-
-.cards-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.service-grid{
-
-grid-template-columns:1fr;
-
-}
-
-.about{
-
-grid-template-columns:1fr;
-
-gap:50px;
-
-}
-
-.about-image{
-
-height:420px;
-
-}
-
-.section-title h2{
-
-font-size:42px;
-
-}
-
-.card h3{
-
-font-size:24px;
-
-}
-
-.service-card h3{
-
-font-size:28px;
-
-}
-
-/*==================================================
-WHY CHOOSE US
-==================================================*/
-
-.why-grid{
-
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:28px;
-
-}
-
-.why-card{
-
-background:#11131b;
-
-border:1px solid rgba(255,255,255,.06);
-
-border-radius:28px;
-
-padding:38px;
-
-transition:.35s;
-
-}
-
-.why-card:hover{
-
-transform:translateY(-10px);
-
-border-color:#6366f155;
-
-box-shadow:0 20px 45px rgba(99,102,241,.15);
-
-}
-
-.why-icon{
-
-width:58px;
-height:58px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-border-radius:18px;
-
-background:rgba(99,102,241,.12);
-
-font-size:26px;
-
-color:#7b82ff;
-
-margin-bottom:24px;
-
-}
-
-.why-card h3{
-
-font-size:28px;
-margin-bottom:15px;
-
-}
-
-.why-card p{
-
-font-size:18px;
-line-height:1.8;
-
-color:var(--muted);
-
-}
-
-/*==================================================
-PROCESS
-==================================================*/
-
-.timeline{
-
-position:relative;
-
-max-width:1100px;
-
-margin:auto;
-
-padding-top:40px;
-
-}
-
-.timeline::before{
-
-content:"";
-
-position:absolute;
-
-left:50%;
-
-top:0;
-
-transform:translateX(-50%);
-
-width:2px;
-
-height:100%;
-
-background:#4f46e5;
-
-}
-
-.step{
-
-position:relative;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-margin:70px 0;
-
-}
-
-.step:nth-child(even){
-
-flex-direction:row-reverse;
-
-}
-
-.step-card{
-
-width:42%;
-
-padding:35px;
-
-background:#11131b;
-
-border:1px solid rgba(255,255,255,.06);
-
-border-radius:26px;
-
-transition:.35s;
-
-}
-
-.step-card:hover{
-
-transform:translateY(-8px);
-
-box-shadow:0 20px 40px rgba(99,102,241,.18);
-
-}
-
-.step-card span{
-
-color:#a06cff;
-
-font-size:15px;
-
-}
-
-.step-card h3{
-
-margin:14px 0;
-
-font-size:32px;
-
-}
-
-.step-card p{
-
-font-size:18px;
-
-color:var(--muted);
-
-line-height:1.8;
-
-}
-
-.circle{
-
-position:absolute;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:68px;
-height:68px;
-
-border-radius:50%;
-
-background:linear-gradient(135deg,#6366f1,#8b5cf6);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-weight:700;
-
-font-size:22px;
-
-}
-
-/*==================================================
-CTA
-==================================================*/
-
-.cta{
-
-background:linear-gradient(135deg,#111c3d,#24183f);
-
-border-radius:36px;
-
-padding:80px;
-
-text-align:center;
-
-}
-
-.cta h2{
-
-font-size:64px;
-
-margin-bottom:25px;
-
-line-height:1.15;
-
-}
-
-.cta p{
-
-font-size:22px;
-
-color:#b9bcc8;
-
-margin-bottom:40px;
-
-}
-
-.cta-buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-}
-
-/*==================================================
-TEAM
-==================================================*/
-
-.team-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,minmax(150px,185px));
-
-gap:14px;
-
-justify-content:center;
-
-max-width:620px;
-
-margin:40px auto 0;
-
-}
-
-.member{
-    width:440px;
-    margin:auto;
-}
-
-.member-img{
-    width:400px;
-    height:400px;
-    margin:20px auto 0;
-    overflow:hidden;
-    border-radius:18px;
-    background:#111;
-}
-
-.member-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center top;
-    display:block;
-}
-
-.member-body{
-    padding:18px;
-    text-align:center;
-}
-
-.member-body h3{
-    font-size:20px;
-    margin-bottom:8px;
-}
-
-.member-body p{
-    color:var(--muted);
-    font-size:14px;
-}
-
-.why-grid,
-.team-grid{
-
-grid-template-columns:1fr;
-
-max-width:100%;
-
-margin:40px 0 0;
-
-}
-
-.timeline::before{
-
-left:30px;
-
-}
-
-.step{
-
-flex-direction:column !important;
-
-align-items:flex-start;
-
-padding-left:80px;
-
-}
-
-.step-card{
-
-width:100%;
-
-}
-
-.circle{
-
-left:30px;
-
-}
-
-.cta{
-
-padding:50px 25px;
-
-}
-
-.cta h2{
-
-font-size:42px;
-
-}
-
-.cta-buttons{
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-/*==================================================
-BRANDS
-==================================================*/
-
-.brand-grid{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:22px;
-margin-top:50px;
-}
-
-.brand-box{
-height:120px;
-border-radius:22px;
-background:#11131b;
-border:1px solid rgba(255,255,255,.05);
-display:flex;
-align-items:center;
-justify-content:center;
-color:#8d91a5;
-font-size:18px;
-transition:.3s;
-}
-
-.brand-box:hover{
-transform:translateY(-8px);
-border-color:#6366f155;
-box-shadow:0 15px 35px rgba(99,102,241,.15);
-}
-
-/*==================================================
-CREATOR SHOWCASE
-==================================================*/
-
-.creator-card{
-
-max-width:760px;
-margin:60px auto;
-
-background:#11131b;
-
-border-radius:35px;
-
-padding:70px 50px;
-
-text-align:center;
-
-border:1px solid rgba(255,255,255,.05);
-
-}
-
-.creator-icon{
-
-width:95px;
-height:95px;
-
-margin:auto;
-
-border-radius:25px;
-
-background:linear-gradient(135deg,#6366f1,#8b5cf6);
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-size:42px;
-
-margin-bottom:30px;
-
-}
-
-.creator-card h3{
-
-font-size:40px;
-margin-bottom:18px;
-
-}
-
-.creator-card p{
-
-font-size:20px;
-line-height:1.8;
-color:var(--muted);
-margin-bottom:35px;
-
-}
-
-/*==================================================
-SUCCESS STORY
-==================================================*/
-
-.story{
-
-margin:auto;
-max-width:900px;
-
-padding:80px;
-
-border-radius:32px;
-
-background:#11131b;
-
-text-align:center;
-
-border:1px solid rgba(255,255,255,.05);
-
-color:#9b9fb2;
-
-font-size:22px;
-
-font-style:italic;
-
-}
-
-/*==================================================
-FAQ
-==================================================*/
-
-.faq{
-
-max-width:900px;
-margin:auto;
-
-}
-
-.faq-item{
-
-background:#11131b;
-
-border-radius:20px;
-
-margin-bottom:18px;
-
-overflow:hidden;
-
-border:1px solid rgba(255,255,255,.05);
-
-}
-
-.faq-question{
-
-padding:26px 30px;
-
-font-size:22px;
-
-cursor:pointer;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-.faq-answer{
-
-max-height:0;
-
-overflow:hidden;
-
-transition:.4s;
-
-padding:0 30px;
-
-color:var(--muted);
-
-line-height:1.8;
-
-}
-
-.faq-item.active .faq-answer{
-
-padding:0 30px 28px;
-
-max-height:250px;
-
-}
-
-/*==================================================
-CONTACT
-==================================================*/
-
-.contact-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:30px;
-
-}
-
-.contact-card{
-
-background:#11131b;
-
-border-radius:28px;
-
-padding:45px;
-
-text-align:center;
-
-border:1px solid rgba(255,255,255,.05);
-
-transition:.35s;
-
-display:block;
-
-cursor:pointer;
-
-}
-
-.contact-card:hover{
-
-transform:translateY(-8px);
-
-color:white;
-
-}
-
-.contact-icon{
-
-width:75px;
-height:75px;
-
-margin:auto;
-
-border-radius:20px;
-
-background:linear-gradient(135deg,#6366f1,#8b5cf6);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-font-size:34px;
-
-margin-bottom:25px;
-
-}
-
-.contact-icon img{
-
-width:100%;
-height:100%;
-
-border-radius:20px;
-
-object-fit:cover;
-
-}
-
-/*==================================================
-FOOTER
-==================================================*/
-
-footer{
-
-    width:100%;
-    padding:80px 0 30px;
-    border-top:1px solid rgba(255,255,255,.06);
-
-}
-
-.footer-container{
-
-    width:min(1200px,92%);
-    margin:0 auto;
-
-}
-
-.footer{
-
-    display:grid;
-
-    grid-template-columns:1.4fr .8fr .8fr;
-
-    gap:72px;
-
-    align-items:flex-start;
-
-}
-
-.footer-brand{
-
-    max-width:360px;
-
-}
-
-.footer-brand-head{
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    margin-bottom:25px;
-
-}
-
-.footer-brand p{
-
-    color:#9ea3b7;
-
-    line-height:1.9;
-
-    margin-bottom:30px;
-
-}
-
-.footer-column h4{
-
-    font-size:15px;
-
-    color:#bdbfd3;
-
-    letter-spacing:2px;
-
-    margin-bottom:28px;
-
-    text-transform:uppercase;
-
-}
-
-.footer-column ul{
-
-    list-style:none;
-
-}
-
-.footer-column li{
-
-    margin-bottom:18px;
-
-}
-
-.footer-column a{
-
-    color:#9ea3b7;
-
-    transition:.3s;
-
-}
-
-.footer-column a:hover{
-
-    color:white;
-
-}
-
-.social-links{
-
-    display:flex;
-
-    gap:15px;
-
-}
-
-.social-link{
-
-    width:46px;
-    height:46px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    background:#141821;
-
-    border:1px solid rgba(255,255,255,.08);
-
-}
-
-.social-link img{
-
-    width:100%;
-    height:100%;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-}
-
-.copyright{
-
-    margin-top:60px;
-
-    padding-top:25px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    display:grid;
-
-    grid-template-columns:1fr auto 1fr;
-
-    align-items:center;
-
-    color:#9ea3b7;
-
-}
-
-.copyright p:nth-child(2){
-
-    text-align:center;
-
-}
-
-.copyright p:last-child{
-
-    text-align:right;
-
-}
-
-.copyright a{
-
-    color:#7b82ff;
-
-    font-weight:600;
-
-    text-decoration:none;
-
-}
-
-@media(max-width:900px){
-
-.footer{
-
-    grid-template-columns:1fr;
-
-    gap:45px;
-
-}
-
-.copyright{
-
-    grid-template-columns:1fr;
-
-    gap:15px;
-
-    text-align:center;
-
-}
-
-.copyright p,
-.copyright p:last-child{
-
-    text-align:center;
-
-}
-
-}
-
-/*==================================================
-BACK TO TOP
-==================================================*/
-
-#topBtn{
-
-position:fixed;
-
-right:30px;
-bottom:30px;
-
-width:58px;
-height:58px;
-
-border:none;
-
-border-radius:50%;
-
-background:linear-gradient(135deg,#6366f1,#8b5cf6);
-
-color:white;
-
-font-size:22px;
-
-cursor:pointer;
-
-display:none;
-
-box-shadow:0 15px 35px rgba(99,102,241,.4);
-
-z-index:999;
-
-}
-
-.brand-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.contact-grid{
-grid-template-columns:1fr;
-gap:20px;
-}
-
-.contact-icon{
-width:60px;
-height:60px;
-font-size:24px;
-}
-
-.contact-card{
-padding:30px 20px;
-}
-
-.contact-card h3{
-font-size:20px;
-}
-
-.contact-card p{
-font-size:14px;
-}
-
-/* ===========================
-TABLET & MOBILE RESPONSIVENESS
-=========================== */
-
-@media(max-width:768px){
-
-.contact-card{
-padding:25px 15px;
-}
-
-.contact-icon{
-width:55px;
-height:55px;
-font-size:20px;
-border-radius:18px;
-}
-
-.contact-icon img{
-border-radius:18px;
-}
-
-.contact-card h3{
-font-size:18px;
-}
-
-.contact-card p{
-font-size:13px;
-}
-
-section{
-padding:70px 5%;
-}
-
-.section-title h2{
-font-size:36px;
-}
-
-}
-
-@media(max-width:480px){
-
-.contact-card{
-padding:20px 12px;
-}
-
-.contact-icon{
-width:50px;
-height:50px;
-font-size:18px;
-margin-bottom:15px;
-border-radius:16px;
-}
-
-.contact-icon img{
-border-radius:16px;
-}
-
-.contact-card h3{
-font-size:16px;
-margin-bottom:8px;
-}
-
-.contact-card p{
-font-size:12px;
-}
-
-section{
-padding:50px 4%;
-}
-
-.section-title h2{
-font-size:28px;
-margin-bottom:15px;
-}
-
-.section-title p{
-font-size:16px;
-}
-
-}
-
-/* ===========================
-LOADER
-=========================== */
-
-#loader{
-position:fixed;
-inset:0;
-background:#070912;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:99999;
-transition:.6s;
-}
-
-.loader-circle{
-width:70px;
-height:70px;
-border-radius:50%;
-border:5px solid rgba(255,255,255,.08);
-border-top:5px solid #6366f1;
-animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-100%{
-transform:rotate(360deg);
-}
-}
-
-/*========================*/
-
-.progress-bar{
-
-position:fixed;
-top:0;
-left:0;
-
-height:3px;
-width:0;
-
-background:linear-gradient(90deg,#6366f1,#8b5cf6);
-
-z-index:10000;
-
-}
-
-/*========================*/
-
-.reveal{
-
-opacity:0;
-transform:translateY(60px);
-
-transition:.8s ease;
-
-}
-
-.reveal.active{
-
-opacity:1;
-transform:translateY(0);
-
-}
-
-/*========================*/
-
-.nav-active{
-
-color:white !important;
-
-}
-
-/*========================*/
-
-header.scrolled{
-
-background:rgba(7,9,18,.9);
-
-box-shadow:0 10px 30px rgba(0,0,0,.35);
-
-}
-
-/*========================*/
-
-.primary,
-.secondary,
-.join-btn{
-
-position:relative;
-overflow:hidden;
-
-}
-
-.primary span,
-.secondary span,
-.join-btn span{
-
-position:absolute;
-
-border-radius:50%;
-
-background:rgba(255,255,255,.3);
-
-transform:scale(0);
-
-animation:ripple .6s linear;
-
-}
-
-@keyframes ripple{
-
-to{
-
-transform:scale(10);
-
-opacity:0;
-
-}
-
-}
-
-.glow1,
-.glow2{
-
-position:fixed;
-
-border-radius:50%;
-
-filter:blur(120px);
-
-pointer-events:none;
-
-z-index:-1;
-
-}
-
-.glow1{
-
-width:500px;
-height:500px;
-
-background:#6366f133;
-
-top:5%;
-
-left:-120px;
-
-animation:float1 8s ease-in-out infinite;
-
-}
-
-.glow2{
-
-width:450px;
-height:450px;
-
-background:#8b5cf633;
-
-right:-120px;
-
-bottom:5%;
-
-animation:float2 10s ease-in-out infinite;
-
-}
-
-@keyframes float1{
-
-50%{
-
-transform:translateY(80px);
-
-}
-
-}
-
-@keyframes float2{
-
-50%{
-
-transform:translateY(-60px);
-
-}
-
-}
-@media (max-width:600px){
-    .hero-image{height:260px;border-radius:16px}
-    .hero-image img{width:100%;height:100%;object-fit:cover}
-    .hero h1{font-size:36px}
-    .hero p{font-size:16px}
-    .hero-grid{gap:28px}
-    nav{padding:0 12px}
-    .logo{font-size:14px}
-    .logo img{width:24px;height:24px}
-    .member{width:100%}
-    .member-img{width:100%;height:auto;border-radius:12px}
-    .member-img img{width:100%;height:auto;object-fit:cover}
-    .contact-icon svg{width:22px;height:22px}
-    .social-link svg{width:16px;height:16px}
-    .modal-content{padding:18px;max-width:96%}
-    .creator-card{padding:30px}
-    .cta{padding:30px}
-    .progress-bar{height:3px}
-}
-        </style>
-        <!-- Plans modal styles -->
-        <style>
-.modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:20000}
-.modal.show{display:flex}
-.modal-overlay{position:absolute;inset:0;background:rgba(2,6,23,0.7);backdrop-filter:blur(6px)}
-.modal-content{position:relative;background:#0c0f1a;border-radius:18px;padding:28px;max-width:960px;width:94%;box-shadow:0 30px 60px rgba(3,6,23,.6);border:1px solid rgba(255,255,255,.04);color:var(--text)}
-.modal-close{position:absolute;right:14px;top:10px;background:transparent;border:none;color:#cbd1ff;font-size:24px;cursor:pointer}
-.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
-.plan-card{background:#0f1220;border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,.04);cursor:pointer;transition:transform .2s,box-shadow .2s}
-.plan-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(99,102,241,.12)}
-.plan-card.selected{outline:3px solid rgba(99,102,241,.18);box-shadow:0 25px 55px rgba(99,102,241,.12)}
-.plan-card h4{margin-bottom:8px}
-.plan-features{color:var(--muted);font-size:14px;line-height:1.6}
-.plan-select{margin-top:12px;display:inline-block;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,#6366f1,#8b5cf6);color:white;text-decoration:none}
-.plan-form{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.plan-form label{font-size:13px;color:#bfc6e8}
-.plan-form input,.plan-form select{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:#0b0e17;color:white}
-.plan-form .full{grid-column:1/-1}
-.form-submit{grid-column:1/-1;margin-top:6px;padding:12px 18px;border-radius:12px;border:none;background:linear-gradient(90deg,#6366f1,#8b5cf6);color:white;font-weight:700;cursor:pointer}
-@media(max-width:900px){.plans-grid{grid-template-columns:1fr}.plan-form{grid-template-columns:1fr}}
-        </style>
-    </head>
-    <body>
-        <div id="loader">
-            <div class="loader-circle"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalyxt Nexus — Creator Partnership Network</title>
+  <meta name="description" content="Catalyxt Nexus connects brands with carefully matched creators for authentic, high-impact influencer campaigns.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Catalyxt Nexus — Home">
+        <img class="brand-mark" src="assets/img/logo.jpeg" alt="Catalyxt Nexus logo" width="30" height="30">
+        <span class="brand-name">Catalyxt <em>Nexus</em></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link is-current" href="index.html">Home</a>
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="services.html">Services</a>
+        <a class="nav-link" href="process.html">Process</a>
+        <a class="nav-link" href="plans.html">Pricing</a>
+        <a class="nav-link" href="for-brands.html">For Brands</a>
+        <a class="nav-link" href="for-creators.html">For Creators</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-cta">
+        <button type="button" class="btn btn--primary btn--sm open-join">Join Network</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <nav aria-label="Mobile">
+        <a class="mm-link" href="index.html">Home</a>
+        <a class="mm-link" href="about.html">About</a>
+        <a class="mm-link" href="services.html">Services</a>
+        <a class="mm-link" href="process.html">Process</a>
+        <a class="mm-link" href="plans.html">Pricing</a>
+        <a class="mm-link" href="for-brands.html">For Brands</a>
+        <a class="mm-link" href="for-creators.html">For Creators</a>
+        <a class="mm-link" href="faqs.html">FAQs</a>
+        <a class="mm-link" href="contact.html">Contact</a>
+      </nav>
+      <div class="mm-cta">
+        <button type="button" class="btn btn--primary btn--block open-join">Join Network</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy" data-reveal>
+          <span class="eyebrow">Creator Partnership Network</span>
+          <h1>Helping brands grow through <em class="accent-serif">strategic creator partnerships</em>.</h1>
+          <p class="hero-lead">Catalyxt Nexus connects businesses with carefully matched creators to build authentic campaigns that generate meaningful impact — not vanity metrics.</p>
+          <div class="hero-actions">
+            <a href="plans.html" class="btn btn--primary btn--lg open-plans">Join as Brand<span class="arw">&nbsp;&rarr;</span></a>
+            <button type="button" class="btn btn--ghost btn--lg open-join">Join as Creator</button>
+          </div>
         </div>
-        <div class="progress-bar"></div>
-        <div class="glow1"></div>
-        <div class="glow2"></div>
-        <header>
-            <nav>
-                <div class="logo">
-                    <div class="logo-circle">
-                        <img
-                            src="logo.jpeg"
-                            alt="img"
-                            width="30"
-                            height="30"
-                        >
-                    </div>
-                    Catalyxt  Nexus
-                </div>
-                <div class="nav-links" id="nav">
-                    <a href="#intro">Intro</a>
-                    <a href="#why-choose-us">Choose</a>
-                    <a href="#why-trust-us">Trust</a>
-                    <a href="#services">Services</a>
-                    <a href="#ready-to-build">Build</a>
-                    <a href="#partnership-unfolds">Process</a>
-                    <a href="#team">Team</a>
-                    <a href="#about-us">About</a>
-                    <a href="#faqs">FAQs</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <a href="#services" class="join-btn">
-                    Join
-                </a>
-                <div class="menu" id="menu">
-                    ☰
-                </div>
-            </nav>
-        </header>
-        <section class="hero" id="intro">
-            <div class="container">
-                <div class="hero-grid">
-                    <div>
-                        <div class="badge">✨ Creator Partnership Network</div>
-                        <h1>
-                            Helping Brands Grow
-
-Through
-                            <span class="gradient">Strategic Creator Partnerships</span>
-                        </h1>
-                        <p>
-                            Catalyxt Nexus connects businesses with carefully matched creators to build authentic campaigns that generate meaningful impact, not vanity metrics.
-                        </p>
-                        <div class="buttons">
-                            <a href="#services" class="primary">Join as Brand →</a>
-                            <a href="#services" class="primary">Join as Creator →</a>
-                        </div>
-                    </div>
-                    <div class="hero-image" role="img" aria-label="Hero image">
-                        <img src="logo.jpeg" alt="Hero image">
-                    </div>
-                </div>
+        <div class="hero-visual" data-reveal>
+          <span class="hero-mini">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>
+            Curated matching
+          </span>
+          <div class="hero-panel">
+            <div class="hero-photo">
+              <img src="assets/img/logo.jpeg" alt="Catalyxt Nexus brand visual" width="620" height="400">
             </div>
-        </section>
-        <!-- Plans Modal -->
-        <div class="modal" id="plansModal" aria-hidden="true">
-            <div class="modal-overlay" id="modalOverlay"></div>
-            <div
-                class="modal-content"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="plansTitle"
-            >
-                <button class="modal-close" id="modalClose" aria-label="Close">×</button>
-                <h3 id="plansTitle">Choose a Plan</h3>
-                <div class="plans-grid">
-                    <div class="plan-card" data-plan="Nexus Core">
-                        <h4>Nexus Core</h4>
-                        <div class="plan-features">
-                            Best for: Small businesses and startups testing influencer marketing.
-                            <ul>
-                                <li>Limited creator outreach</li>
-                                <li>Budget-friendly</li>
-                                <li>Perfect for first campaigns</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="plan-card" data-plan="Nexus Growth">
-                        <h4>Nexus Growth</h4>
-                        <div class="plan-features">
-                            Best for: Brands looking to scale awareness and sales.
-                            <ul>
-                                <li>Larger creator network</li>
-                                <li>Campaign strategy &amp; management</li>
-                                <li>Performance-focused execution</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="plan-card" data-plan="Nexus Elite">
-                        <h4>Nexus Elite</h4>
-                        <div class="plan-features">
-                            Best for: Established brands that want end-to-end campaign management.
-                            <ul>
-                                <li>Custom creator selection</li>
-                                <li>Dedicated campaign manager</li>
-                                <li>Premium reporting &amp; optimization</li>
-                                <li>Priority support and custom strategy</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <form id="planForm" class="plan-form">
-                    <label class="full">
-                        Brand Name
-                        <input type="text" name="brand" required>
-                    </label>
-                    <label>
-                        Contact Person name
-                        <input type="text" name="contact" required>
-                    </label>
-                    <label>
-                        Email
-                        <input type="email" name="email" required>
-                    </label>
-                    <label>
-                        Number
-                        <input type="tel" name="phone" required>
-                    </label>
-                    <label>
-                        Preferred Plan
-                        <select name="plan" id="preferredPlan" required>
-                            <option value="Nexus Core">Nexus Core</option>
-                            <option value="Nexus Growth">Nexus Growth</option>
-                            <option value="Nexus Elite">Nexus Elite</option>
-                        </select>
-                    </label>
-                    <label>
-                        Budget
-                        <input type="text" name="budget" required>
-                    </label>
-                    <label class="full">
-                        City
-                        <input type="text" name="city" required>
-                    </label>
-                    <button class="form-submit" type="submit">Submit Enquiry</button>
-                </form>
+            <div class="hero-caption">
+              <div>
+                <p>Catalyxt Nexus</p>
+                <p style="margin-top:2px">Brand · Creator network</p>
+              </div>
+              <span class="eyebrow">Since launch 2026</span>
             </div>
+          </div>
+          <div class="hero-note">
+            <strong>Built by experienced hands</strong>
+            <p>A new network carrying years of real campaign experience behind it.</p>
+          </div>
         </div>
-        <!-- Join Network Modal -->
-        <div class="modal" id="joinModal" aria-hidden="true">
-            <div class="modal-overlay" id="joinOverlay"></div>
-            <div
-                class="modal-content"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="joinTitle"
-            >
-                <button class="modal-close" id="joinClose" aria-label="Close">×</button>
-                <h3 id="joinTitle">Join Network</h3>
-                <div class="plans-grid">
-                    <div class="plan-card" data-platform="WhatsApp">
-                        <!-- <h4>WhatsApp Group</h4> -->
-                        <div class="plan-features">
-                            <a href="https://wa.me/qr/TUWZJ2GF5RP5M1" target="_blank" rel="noreferrer">Join us on WhatsApp</a>
-                        </div>
-                        <!-- <button class="plan-select" data-platform="WhatsApp">Sign Up</button> -->
-                    </div>
-                    <div class="plan-card" data-platform="Instagram">
-                        <!-- <h4>Instagram</h4> -->
-                        <div class="plan-features">
-                            <a href="https://www.instagram.com/catalyxtnexus?igsh=eTVvZHJoc3d6aW43&utm_source=qr" target="_blank" rel="noreferrer">Follow us on Instagram</a>
-                        </div>
-                        <!-- <button class="plan-select" data-platform="Instagram">Sign Up</button> -->
-                    </div>
-                    <div class="plan-card" data-platform="LinkedIn">
-                        <!-- <h4>LinkedIn</h4> -->
-                        <div class="plan-features">
-                            <a href="https://www.linkedin.com/in/catalyxt-nexus-6a18a8422?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noreferrer">Follow us on LinkedIn</a>
-                        </div>
-                        <!-- <button class="plan-select" data-platform="LinkedIn">Sign Up</button> -->
-                    </div>
-                </div>
-                <form id="joinForm" class="plan-form">
-                    <label class="full">
-                        Name
-                        <input type="text" name="name" required>
-                    </label>
-                    <label>
-                        City
-                        <input type="text" name="city" required>
-                    </label>
-                    <label>
-                        Email
-                        <input type="email" name="email" required>
-                    </label>
-                    <label>
-                        Number
-                        <input type="tel" name="phone" required>
-                    </label>
-                    <label>
-                        Insta Link
-                        <input type="url" name="insta_link" required>
-                    </label>
-                    <label>
-                        Follower Count
-                        <input type="text" name="follower_count" required>
-                    </label>
-                    <label>
-                        Niche
-                        <input type="text" name="niche" required>
-                    </label>
-                    <label class="full">
-                        Additional Message (optional)
-                        <textarea
-                            name="message"
-                            rows="4"
-                            required
-                            style="padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,.06);background:#0b0e17;color:white"
-                        ></textarea>
-                    </label>
-                    <input type="hidden" name="platform" id="joinPlatform">
-                    <button class="form-submit" type="submit">Submit</button>
-                </form>
-            </div>
+      </div>
+    </section>
+
+    <!-- Why Catalyxt -->
+    <section class="section section--alt" id="why">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Why Catalyxt</span>
+          <h2>Why brands and creators <em class="accent-serif">stay with us</em>.</h2>
+          <p class="lead">We're a new brand, but the people behind it aren't. Here's what we bring to every collaboration.</p>
         </div>
-        <section id="why-choose-us">
-            <div class="container">
-                <div class="section-title">
-                    <span>WHY CHOOSE US</span>
-                    <h2>
-                        Six reasons brands and creators
-                        <span class="gradient">stay with us.</span>
-                    </h2>
-                </div>
-                <div class="why-grid">
-                    <div class="why-card">
-                        <div class="why-icon">🏅</div>
-                        <h3>Experienced Team</h3>
-                        <p>Practical expertise across creator campaigns and brand partnerships.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-icon">👥</div>
-                        <h3>Creator First</h3>
-                        <p>We build our network by trust, not follower count.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-icon">👁</div>
-                        <h3>Transparent Process</h3>
-                        <p>Clear timelines, open communication and measurable results.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-icon">⭐</div>
-                        <h3>Quality Over Quantity</h3>
-                        <p>Curated matches outperform mass outreach.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-icon">🤝</div>
-                        <h3>Long-Term Partnerships</h3>
-                        <p>Designed for second, third and tenth campaigns.</p>
-                    </div>
-                    <div class="why-card">
-                        <div class="why-icon">🎨</div>
-                        <h3>Custom Strategy</h3>
-                        <p>Every campaign is designed around business goals.</p>
-                    </div>
-                </div>
+        <div class="grid grid--3" data-reveal-group>
+          <div class="feature-card" data-reveal>
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 01-10 0V4z"/><path d="M7 6H4v1a3 3 0 003 3M17 6h3v1a3 3 0 01-3 3"/></svg>
             </div>
-        </section>
-        <section id="why-trust-us">
-            <div class="container">
-                <div class="section-title">
-                    <span>WHY TRUST US</span>
-                    <h2>
-                        Built on experience,
-                        <span class="gradient">not exaggeration.</span>
-                    </h2>
-                    <p>
-                        We're a new brand, but the people behind it aren't. Here's what we bring to every collaboration.
-                    </p>
-                </div>
-                <div class="cards-grid">
-                    <div class="card">
-                        <div class="icon-box">👥</div>
-                        <h3>Built by Experienced Professionals</h3>
-                        <p>Years of hands-on work in creator collaborations and digital campaigns.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-box">🛡️</div>
-                        <h3>Transparent Collaboration</h3>
-                        <p>Clear scopes, honest timelines and no fabricated numbers.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-box">❤</div>
-                        <h3>Creator First Approach</h3>
-                        <p>Creators are partners, not line items. Fair briefs and fair pay.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-box">🎯</div>
-                        <h3>Campaign Focused Strategy</h3>
-                        <p>Every partnership is designed around measurable business outcomes.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-box">📍</div>
-                        <h3>PAN India Network</h3>
-                        <p>Creators across cities, niches and audience sizes.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon-box">⚡</div>
-                        <h3>Fast Response Time</h3>
-                        <p>Real people. Real conversations. Real turnaround.</p>
-                    </div>
-                </div>
+            <h3>Experienced team</h3>
+            <p>Practical expertise across creator campaigns and brand partnerships, built over years of hands-on work.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="17.5" cy="8.5" r="2.3"/><path d="M16 15.3c2.8.4 5 2.1 5 4.7"/></svg>
             </div>
-        </section>
-        <section id="services">
-            <div class="container">
-                <div class="section-title">
-                    <span>SERVICES</span>
-                    <h2>
-                        Two sides of one
-                        <span class="gradient">network.</span>
-                    </h2>
-                    <p>
-                        Whether you're a brand looking for reach or a creator looking for meaningful collaborations, this is where the fit is made.
-                    </p>
-                </div>
-                <div class="service-grid">
-                    <div class="service-card">
-                        <div class="service-tag">FOR BRANDS</div>
-                        <div class="service-icon">🎁</div>
-                        <h3>Influencer Marketing</h3>
-                        <p>Reach the right audience through carefully selected creators with campaigns designed around measurable outcomes.</p>
-                        <a href="#" id="explorePlansBtn" class="service-btn open-plans">Explore Plans →</a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-tag">FOR CREATORS</div>
-                        <div class="service-icon">👥</div>
-                        <h3>Creator Collaboration Program</h3>
-                        <p>Work with brands, receive collaboration opportunities, build your portfolio and earn an official collaboration certificate.</p>
-                        <a href="#" id="joinNetworkBtn" class="service-btn open-join">Join Network →</a>
-                    </div>
-                </div>
+            <h3>Creator first</h3>
+            <p>We build our network by trust, not follower count. Creators are partners, not line items.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
             </div>
-        </section>
-        <section id="ready-to-build">
-            <div class="container">
-                <div class="cta">
-                    <h2>
-                        Ready to build your
-                        <span class="gradient">next campaign?</span>
-                    </h2>
-                    <p>
-                        One consultation is all it takes to discover whether we're the right fit.
-                    </p>
-                    <div class="cta-buttons">
-                        <a class="primary open-plans" href="#">Explore Plans →</a>
-                        <a class="primary open-join" href="#contact">Join Network →</a>
-                    </div>
-                </div>
+            <h3>Transparent process</h3>
+            <p>Clear timelines, open communication and measurable results. No fabricated numbers.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z"/></svg>
             </div>
-        </section>
-        <section id="partnership-unfolds">
-            <div class="container">
-                <div class="section-title">
-                    <span>HOW A PARTNERSHIP UNFOLDS</span>
-                    <h2>
-                        How a partnership
-                        <span class="gradient">unfolds.</span>
-                    </h2>
-                </div>
-                <div class="timeline">
-                    <div class="step">
-                        <div class="step-card">
-                            <span>STEP 01</span>
-                            <h3>Submit Enquiry</h3>
-                            <p>Tell us about your brand or creator profile.</p>
-                        </div>
-                        <div class="circle">01</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-card">
-                            <span>STEP 02</span>
-                            <h3>Consultation</h3>
-                            <p>A focused discussion to understand your goals.</p>
-                        </div>
-                        <div class="circle">02</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-card">
-                            <span>STEP 03</span>
-                            <h3>Creator Matching</h3>
-                            <p>Curated shortlist based on audience, niche and campaign fit.</p>
-                        </div>
-                        <div class="circle">03</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-card">
-                            <span>STEP 04</span>
-                            <h3>Campaign Execution</h3>
-                            <p>Briefs, approvals, coordination and campaign launch.</p>
-                        </div>
-                        <div class="circle">04</div>
-                    </div>
-                    <div class="step">
-                        <div class="step-card">
-                            <span>STEP 05</span>
-                            <h3>Reporting</h3>
-                            <p>Performance reports with actionable insights.</p>
-                        </div>
-                        <div class="circle">05</div>
-                    </div>
-                </div>
+            <h3>Quality over quantity</h3>
+            <p>Curated matches outperform mass outreach. Every partnership is designed around your goals.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11a7 7 0 10-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
             </div>
-        </section>
-        <section id="team">
-            <div class="container">
-                <div class="section-title">
-                    <span>MEET THE TEAM</span>
-                    <h2>
-                        The people behind
-                        <span class="gradient">the network.</span>
-                    </h2>
-                </div>
-                <div class="team-grid">
-                    <div class="member">
-                        <!-- <div class="member-img"><img src="Harshit.jpg" alt=""></div> -->
-                        <div class="member-body">
-                            <h3>Harshit</h3>
-                            <p>Founder & Campaign Strategist</p>
-                        </div>
-                    </div>
-                    <div class="member">
-                        <!-- <div class="member-img"><img src="idam.png" alt="" ></div> -->
-                        <div class="member-body">
-                            <h3>Idamjot Singh</h3>
-                            <p>Co-Founder & Campaign Strategist</p>
-                        </div>
-                    </div>
-                    <!-- <div class="member">
-                        <div class="member-img">👤</div>
-                        <div class="member-body">
-                            <h3>Marketing Lead</h3>
-                            <p>Brand Collaborations</p>
-                        </div>
-                    </div> -->
-                </div>
+            <h3>PAN India network</h3>
+            <p>Creators across cities, niches and audience sizes, matched to the campaign and market you need.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <div class="feature-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
             </div>
-        </section>
-        <section id="about-us">
-            <div class="container">
-                <div class="about">
-                    <!-- <div class="about-image">About Image Placeholder</div> -->
-                    <div class="about-content">
-                        <span>ABOUT US</span>
-                        <h2>
-                            A new network,
+            <h3>Fast response time</h3>
+            <p>Real people, real conversations and a real turnaround on every enquiry.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-built by seasoned hands.
-                        </h2>
-                        <p>
-                            Catalyxt Nexus is a newly established creator partnership network built by professionals experienced in influencer collaborations and digital campaigns.
-                        </p>
-                        <p>
-                            We combine practical experience with a creator-first mindset to build authentic partnerships between businesses and content creators.
-                        </p>
-                        <p>
-                            We believe long-term collaborations outperform one-time promotions.
-                        </p>
-                    </div>
-                </div>
+    <!-- Two sides of the network -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">One network, two sides</span>
+          <h2>Whether you're a brand or a creator, <em class="accent-serif">this is where the fit is made</em>.</h2>
+        </div>
+        <div class="dual" data-reveal-group>
+          <div class="dual-card dual-card--brand" data-reveal>
+            <div class="dual-card__ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v4a1 1 0 001 1h3l4 4V6L7 10H4a1 1 0 00-1 1z"/><path d="M15 8.5a5 5 0 010 7M18 6a9 9 0 010 12"/></svg>
             </div>
-        </section>
-        <section id="faqs">
-            <div class="container">
-                <div class="section-title">
-                    <span>FAQS</span>
-                    <h2>
-                        Answers to
-                        <span class="gradient">common questions.</span>
-                    </h2>
-                </div>
-                <div class="faq">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            How do I join?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Simply contact us using the form below or click Join as Creator.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Do creators get paid?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Yes. Every collaboration is negotiated transparently.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Can small businesses join?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Absolutely. Campaigns are customized according to budget.</p>
-                        </div>
-                    </div>
-                </div>
+            <span class="eyebrow">For Brands</span>
+            <h3>Influencer marketing that works</h3>
+            <p>Reach the right audience through carefully selected creators, with campaigns designed around measurable outcomes.</p>
+            <ul class="tick-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>
+                Reach the right audience
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>
+                Campaign strategy &amp; management
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>
+                Measure real outcomes
+              </li>
+            </ul>
+            <div class="dual-card__foot">
+              <a href="plans.html" class="btn btn--primary open-plans">Explore plans<span class="arw">&nbsp;&rarr;</span></a>
             </div>
-        </section>
-        <section id="contact">
-            <div class="container">
-                <div class="section-title">
-                    <span>CONTACT</span>
-                    <h2>
-                        Let's
-                        <span class="gradient">Talk.</span>
-                    </h2>
-                </div>
-                <div class="contact-grid">
-                    <a href="mailto:catalyxtnexus@gmail.com" class="contact-card">
-                        <div class="contact-icon" aria-hidden="true">
-                            <img
-                                src="Gmail.jpeg"
-                                alt="Gmail"
-                                width="32"
-                                height="32"
-                            >
-                        </div>
-                        <h3>Email</h3>
-                        <p>catalyxtnexus@gmail.com</p>
-                    </a>
-                    <a
-                        href="https://www.instagram.com/catalyxtnexus?igsh=eTVvZHJoc3d6aW43&utm_source=qr"
-                        target="_blank"
-                        rel="noreferrer"
-                        class="contact-card"
-                    >
-                        <div class="contact-icon" aria-hidden="true">
-                            <img
-                                src="Insta.jpeg"
-                                alt="Instagram"
-                                width="32"
-                                height="32"
-                            >
-                        </div>
-                        <h3>Instagram</h3>
-                        <p>@catalyxtnexus</p>
-                    </a>
-                    <a
-                        href="https://wa.me/qr/TUWZJ2GF5RP5M1"
-                        target="_blank"
-                        rel="noreferrer"
-                        class="contact-card"
-                    >
-                        <div class="contact-icon" aria-hidden="true">
-                            <img
-                                src="whatsapp.jpeg"
-                                alt="WhatsApp"
-                                width="32"
-                                height="32"
-                            >
-                        </div>
-                        <h3>WhatsApp</h3>
-                        <p>Message Us</p>
-                    </a>
-                </div>
+          </div>
+          <div class="dual-card dual-card--creator" data-reveal>
+            <div class="dual-card__ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4V8z"/><circle cx="12" cy="13" r="3.5"/></svg>
             </div>
-        </section>
-        <footer>
-            <div class="footer-container">
-                <div class="footer">
-                    <!-- Brand -->
-                    <div class="footer-brand">
-                        <div class="footer-brand-head">
-                            <div class="logo-circle">
-                                <img
-                                    src="logo.jpeg"
-                                    alt="Catalyxt Nexus Logo"
-                                    width="30"
-                                    height="30"
-                                >
-                            </div>
-                            <h2>
-                                Catalyxt
-                                <span class="gradient">Nexus</span>
-                            </h2>
-                        </div>
-                        <p>
-                            A creator partnership network connecting brands with carefully
-                    matched creators for authentic, high-impact campaigns.
-                        </p>
-                        <div class="social-links">
-                            <a href="mailto:catalyxtnexus@gmail.com" class="social-link" aria-label="Email">
-                                <img
-                                    src="Gmail.jpeg"
-                                    alt="Gmail"
-                                    width="18"
-                                    height="18"
-                                >
-                            </a>
-                            <a
-                                href="https://instagram.com/catalyxtnexus"
-                                target="_blank"
-                                class="social-link"
-                                aria-label="Instagram"
-                            >
-                                <img
-                                    src="Insta.jpeg"
-                                    alt="Instagram"
-                                    width="18"
-                                    height="18"
-                                >
-                            </a>
-                            <a
-                                href="https://wa.me/qr/TUWZJ2GF5RP5M1"
-                                target="_blank"
-                                rel="noreferrer"
-                                class="social-link"
-                                aria-label="WhatsApp"
-                            >
-                                <img
-                                    src="whatsapp.jpeg"
-                                    alt="WhatsApp"
-                                    width="18"
-                                    height="18"
-                                >
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Navigation -->
-                    <div class="footer-column">
-                        <h4>NAVIGATE</h4>
-                        <ul>
-                            <li>
-                                <a href="#intro">Home</a>
-                            </li>
-                            <li>
-                                <a href="#about-us">About</a>
-                            </li>
-                            <li>
-                                <a href="#services">Services</a>
-                            </li>
-                            <li>
-                                <a href="#partnership-unfolds">Process</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Support -->
-                    <div class="footer-column">
-                        <h4>SUPPORT</h4>
-                        <ul>
-                            <li>
-                                <a href="#faqs">FAQs</a>
-                            </li>
-                            <li>
-                                <a href="#contact">Contact</a>
-                            </li>
-                            <li>
-                                <a href="#">For Brands</a>
-                            </li>
-                            <li>
-                                <a href="#">For Creators</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <p>© 2026 Catalyxt Nexus. All rights reserved.</p>
-                    <p>Connecting Brands. Empowering Creators.</p>
-                </div>
+            <span class="eyebrow">For Creators</span>
+            <h3>Meaningful collaboration opportunities</h3>
+            <p>Work with real brands, build your portfolio, get fair briefs and grow with collaborations that respect your craft.</p>
+            <ul class="tick-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>
+                Paid, transparent briefs
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>
+                Build your portfolio
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>
+                Official collaboration certificate
+              </li>
+            </ul>
+            <div class="dual-card__foot">
+              <button type="button" class="btn btn--primary open-join">Join the network<span class="arw">&nbsp;&rarr;</span></button>
             </div>
-        </footer>
-        <button id="topBtn">↑</button>
-        <script>
-
-// Loader
-
-window.onload=()=>{
-
-document.getElementById("loader").style.opacity="0";
-
-setTimeout(()=>{
-
-loader.remove();
-
-},600);
-
-};
-
-// Mobile Menu
-
-const menu=document.getElementById("menu");
-
-const nav=document.getElementById("nav");
-
-menu.onclick=()=>{
-
-nav.classList.toggle("show");
-
-};
-
-// Progress Bar
-
-const progress=document.querySelector(".progress-bar");
-
-window.addEventListener("scroll",()=>{
-
-let h=document.documentElement;
-
-let sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
-
-progress.style.width=sc+"%";
-
-});
-
-// Navbar Shadow
-
-const header=document.querySelector("header");
-
-window.addEventListener("scroll",()=>{
-
-header.classList.toggle("scrolled",window.scrollY>40);
-
-});
-
-// FAQ
-
-document.querySelectorAll(".faq-question").forEach(item=>{
-
-item.onclick=()=>{
-
-item.parentElement.classList.toggle("active");
-
-};
-
-});
-
-// Reveal
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("active");
-
-}
-
-});
-
-},{threshold:.15});
-
-document.querySelectorAll("section").forEach(section=>{
-
-section.classList.add("reveal");
-
-observer.observe(section);
-
-});
-
-// Back To Top
-
-const topBtn=document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-
-topBtn.style.display=window.scrollY>500?"block":"none";
-
-});
-
-topBtn.onclick=()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-};
-
-// Ripple Effect
-
-document.querySelectorAll(".primary,.secondary,.join-btn").forEach(btn=>{
-
-btn.addEventListener("click",function(e){
-
-let circle=document.createElement("span");
-
-let d=Math.max(this.clientWidth,this.clientHeight);
-
-circle.style.width=d+"px";
-
-circle.style.height=d+"px";
-
-circle.style.left=e.offsetX-d/2+"px";
-
-circle.style.top=e.offsetY-d/2+"px";
-
-this.appendChild(circle);
-
-setTimeout(()=>{
-
-circle.remove();
-
-},600);
-
-});
-
-});
-
-// Active Navigation
-
-const sections=document.querySelectorAll("section");
-
-const links=document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll",()=>{
-
-let current="";
-
-sections.forEach(sec=>{
-
-const top=sec.offsetTop-150;
-
-if(scrollY>=top){
-
-current=sec.getAttribute("id");
-
-}
-
-});
-
-links.forEach(link=>{
-
-link.classList.remove("nav-active");
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("nav-active");
-
-}
-
-});
-
-});
-        </script>
-        <script>
-// Plans modal JS
-const exploreBtn=document.getElementById('explorePlansBtn');
-const exploreBtns=document.querySelectorAll('.open-plans');
-const plansModal=document.getElementById('plansModal');
-const modalOverlay=document.getElementById('modalOverlay');
-const modalClose=document.getElementById('modalClose');
-const planCards=document.querySelectorAll('.plan-card');
-const preferredSelect=document.getElementById('preferredPlan');
-
-function openModal(){plansModal.classList.add('show');plansModal.setAttribute('aria-hidden','false');window.scrollTo(0,0)}
-function closeModal(){plansModal.classList.remove('show');plansModal.setAttribute('aria-hidden','true')}
-
-// Attach to all triggers (service card and CTA)
-exploreBtns.forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();openModal();
-    // open and scroll to the enquiry form
-    const form=document.getElementById('planForm');
-    if(form){setTimeout(()=>form.scrollIntoView({behavior:'smooth',block:'center'}),120);}    
-}));
-exploreBtn && exploreBtn.addEventListener('click',e=>{e.preventDefault();openModal();
-    const form=document.getElementById('planForm');
-    if(form){setTimeout(()=>form.scrollIntoView({behavior:'smooth',block:'center'}),120);}    
-});
-modalOverlay && modalOverlay.addEventListener('click',closeModal);
-modalClose && modalClose.addEventListener('click',closeModal);
-
-planCards.forEach(card=>{
-    card.addEventListener('click',()=>{
-        planCards.forEach(c=>c.classList.remove('selected'));
-        card.classList.add('selected');
-        const p=card.getAttribute('data-plan');
-        if(preferredSelect) preferredSelect.value=p;
-        // scroll to form
-        const form=document.getElementById('planForm');
-        form && form.scrollIntoView({behavior:'smooth',block:'center'});
-    });
-});
-
-document.getElementById("planForm").addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    const submitBtn = this.querySelector(".form-submit");
-
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = "Sending...";
-
-    const formData = new FormData(this);
-    formData.append('type', 'brand'); // Mark this as brand enquiry
-
-    fetch('https://script.google.com/macros/s/AKfycbzdDmvwxZ6iTMN6g6Mi_C20b8_DX5dPHjitaASbkan0KRzobGp56MYUFWzGl3TCHXxT/exec', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(() => {
-
-        alert("✅ Thanks! Your enquiry has been submitted successfully.");
-
-        this.reset();
-
-        planCards.forEach(card => card.classList.remove("selected"));
-
-        closeModal();
-
-    })
-    .catch((error) => {
-
-        console.error("Error:", error);
-
-        alert("❌ Failed to send enquiry. Please try again.");
-
-    })
-    .finally(() => {
-
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = "Submit Enquiry";
-
-    });
-
-});
-        </script>
-        <script>
-// Join network modal JS
-const joinBtn=document.getElementById('joinNetworkBtn');
-const joinBtns=document.querySelectorAll('.open-join');
-const joinModal=document.getElementById('joinModal');
-const joinOverlay=document.getElementById('joinOverlay');
-const joinClose=document.getElementById('joinClose');
-const joinCards=document.querySelectorAll('#joinModal .plan-card');
-const joinForm=document.getElementById('joinForm');
-const joinPlatformInput=document.getElementById('joinPlatform');
-
-function openJoinModal(){joinModal.classList.add('show');joinModal.setAttribute('aria-hidden','false');window.scrollTo(0,0)}
-function closeJoinModal(){joinModal.classList.remove('show');joinModal.setAttribute('aria-hidden','true')}
-
-// Attach to all join triggers (service card and CTA)
-joinBtns.forEach(btn=>btn.addEventListener('click',e=>{e.preventDefault();openJoinModal();
-    // focus the first input in the join form
-    setTimeout(()=>{const f=joinForm && joinForm.querySelector('input[name="name"]');f && f.focus();},120);
-}));
-joinBtn && joinBtn.addEventListener('click',e=>{e.preventDefault();openJoinModal();
-    setTimeout(()=>{const f=joinForm && joinForm.querySelector('input[name="name"]');f && f.focus();},120);
-});
-joinOverlay && joinOverlay.addEventListener('click',closeJoinModal);
-joinClose && joinClose.addEventListener('click',closeJoinModal);
-
-joinCards.forEach(card=>{
-    const selectBtn=card.querySelector('.plan-select');
-    selectBtn && selectBtn.addEventListener('click',()=>{
-        joinCards.forEach(c=>c.classList.remove('selected'));
-        card.classList.add('selected');
-        const p=card.getAttribute('data-platform');
-        joinPlatformInput.value=p;
-        // focus first input
-        joinForm.querySelector('input[name="name"]').focus();
-    });
-});
-
-joinForm && joinForm.addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    const submitBtn = this.querySelector(".form-submit");
-
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = "Submitting...";
-
-    const formData = new FormData(this);
-    formData.append('type', 'creator'); // Mark this as creator application
-
-    fetch('https://script.google.com/macros/s/AKfycbzdDmvwxZ6iTMN6g6Mi_C20b8_DX5dPHjitaASbkan0KRzobGp56MYUFWzGl3TCHXxT/exec', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(() => {
-
-        alert("✅ Thank you for joining Catalyxt Nexus! We'll contact you soon.");
-
-        this.reset();
-
-        joinCards.forEach(card => card.classList.remove("selected"));
-
-        closeJoinModal();
-
-    })
-    .catch((error) => {
-
-        console.error(error);
-
-        alert("❌ Something went wrong. Please try again.");
-
-    })
-    .finally(() => {
-
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = "Join Network";
-
-    });
-
-});
-        </script>
-    </body>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services preview -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <span class="eyebrow">What we do</span>
+          <h2>Two programmes, <em class="accent-serif">one network</em>.</h2>
+          <p class="lead">Whether you're a brand looking for reach or a creator looking for meaningful collaborations, this is where the fit is made.</p>
+        </div>
+        <div class="grid grid--2" data-reveal-group>
+          <div class="service-card" data-reveal>
+            <div class="service-card__top">
+              <span class="service-card__num">01</span>
+              <div class="service-card__ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v4a1 1 0 001 1h3l4 4V6L7 10H4a1 1 0 00-1 1z"/><path d="M15 8.5a5 5 0 010 7M18 6a9 9 0 010 12"/></svg>
+              </div>
+            </div>
+            <h3>Influencer Marketing</h3>
+            <p>Reach the right audience through carefully selected creators with campaigns designed around measurable outcomes — discovery, trust and sales that can actually be tracked.</p>
+            <button type="button" class="link-arrow open-plans">Explore plans<span class="arw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+          </div>
+          <div class="service-card" data-reveal>
+            <div class="service-card__top">
+              <span class="service-card__num">02</span>
+              <div class="service-card__ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="17" r="2.5"/><circle cx="19" cy="17" r="2.5"/><path d="M12 7.5l-5 7M12 7.5l5 7M7 15l-2 2M17 15l2 2M10.5 12.5l1.5 3 1.5-3"/></svg>
+              </div>
+            </div>
+            <h3>Creator Collaboration Program</h3>
+            <p>Work with brands, receive collaboration opportunities, build your portfolio and earn an official collaboration certificate — with briefs built on fairness and transparency.</p>
+            <button type="button" class="link-arrow open-join">Join network<span class="arw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:44px" data-reveal>
+          <a href="services.html" class="link-arrow">See everything we offer<span class="arw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process preview -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">How it works</span>
+          <h2>How a partnership <em class="accent-serif">unfolds</em>.</h2>
+          <p class="lead">A simple, transparent path from first hello to a campaign you can measure.</p>
+        </div>
+        <div class="steps" data-reveal-group>
+          <div class="step" data-reveal>
+            <div class="step__dot">01</div>
+            <div class="step__card">
+              <span class="step__label">Step 01</span>
+              <h3>Submit enquiry</h3>
+              <p>Tell us about your brand or creator profile.</p>
+            </div>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step__dot">02</div>
+            <div class="step__card">
+              <span class="step__label">Step 02</span>
+              <h3>Consultation</h3>
+              <p>A focused discussion to understand your goals.</p>
+            </div>
+          </div>
+          <div class="step" data-reveal>
+            <div class="step__dot">03</div>
+            <div class="step__card">
+              <span class="step__label">Step 03</span>
+              <h3>Creator matching</h3>
+              <p>Curated shortlist based on audience, niche and campaign fit.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:44px" data-reveal>
+          <a href="process.html" class="link-arrow">See the full process<span class="arw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA band -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="cta-band" data-reveal>
+          <span class="eyebrow" style="color:rgba(255,255,255,.6)">Ready when you are</span>
+          <h2>Ready to build your next campaign?</h2>
+          <p>One consultation is all it takes to discover whether we're the right fit.</p>
+          <div class="cta-band__actions">
+            <a href="plans.html" class="btn btn--light btn--lg open-plans">Explore plans<span class="arw">&nbsp;&rarr;</span></a>
+            <button type="button" class="btn btn--ghost btn--lg open-join" style="border-color:rgba(255,255,255,.35);background:transparent;color:#fff">Join network<span class="arw">&nbsp;&rarr;</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ preview -->
+    <section class="section section--alt" id="faqs">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">FAQs</span>
+          <h2>Answers to <em class="accent-serif">common questions</em>.</h2>
+        </div>
+        <div class="faq-list" data-reveal-group>
+          <div class="faq-item" data-reveal>
+            <button class="faq-q" type="button">How do I join?<span></span></button>
+            <div class="faq-a"><p>Simply contact us using the form, or click "Join as Creator" to share your profile with the network.</p></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <button class="faq-q" type="button">Do creators get paid?<span></span></button>
+            <div class="faq-a"><p>Yes. Every collaboration is negotiated transparently before a campaign begins.</p></div>
+          </div>
+          <div class="faq-item" data-reveal>
+            <button class="faq-q" type="button">Can small businesses join?<span></span></button>
+            <div class="faq-a"><p>Absolutely. Campaigns are customized according to budget — from first-timers to established brands.</p></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:40px" data-reveal>
+          <a href="faqs.html" class="link-arrow">Read all FAQs<span class="arw"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact strip -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Contact</span>
+          <h2>Let's <em class="accent-serif">talk</em>.</h2>
+          <p class="lead">Reach us however suits you best — we respond quickly.</p>
+        </div>
+        <div class="grid grid--3 contact-list" data-reveal-group>
+          <a class="contact-card" href="mailto:catalyxtnexus@gmail.com" data-reveal>
+            <div class="contact-card__ic"><img src="assets/img/Gmail.jpeg" alt="" width="46" height="46"></div>
+            <div><h3>Email</h3><p>catalyxtnexus@gmail.com</p></div>
+          </a>
+          <a class="contact-card" href="https://www.instagram.com/catalyxtnexus?igsh=eTVvZHJoc3d6aW43&utm_source=qr" target="_blank" rel="noreferrer" data-reveal>
+            <div class="contact-card__ic"><img src="assets/img/Insta.jpeg" alt="" width="46" height="46"></div>
+            <div><h3>Instagram</h3><p>@catalyxtnexus</p></div>
+          </a>
+          <a class="contact-card" href="https://wa.me/qr/TUWZJ2GF5RP5M1" target="_blank" rel="noreferrer" data-reveal>
+            <div class="contact-card__ic"><img src="assets/img/whatsapp.jpeg" alt="" width="46" height="46"></div>
+            <div><h3>WhatsApp</h3><p>Message us</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Plans modal -->
+  <div class="modal" id="plansModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="plansModalTitle">
+    <div class="modal-overlay"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" aria-label="Close" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <h3 class="modal-title" id="plansModalTitle">Choose a plan</h3>
+      <p class="modal-sub">Pick the plan that fits your goals, then tell us a little about your brand.</p>
+      <div class="modal-tabs">
+        <button type="button" class="plan-tab" data-plan="Nexus Core" data-plan-select="preferredPlan">
+          <h4>Nexus Core</h4>
+          <p>For small businesses and startups testing influencer marketing.</p>
+          <ul>
+            <li>Limited creator outreach</li>
+            <li>Budget-friendly</li>
+            <li>Perfect for first campaigns</li>
+          </ul>
+        </button>
+        <button type="button" class="plan-tab" data-plan="Nexus Growth" data-plan-select="preferredPlan">
+          <h4>Nexus Growth</h4>
+          <p>For brands looking to scale awareness and sales.</p>
+          <ul>
+            <li>Larger creator network</li>
+            <li>Campaign strategy &amp; management</li>
+            <li>Performance-focused execution</li>
+          </ul>
+        </button>
+        <button type="button" class="plan-tab" data-plan="Nexus Elite" data-plan-select="preferredPlan">
+          <h4>Nexus Elite</h4>
+          <p>For established brands that want end-to-end campaign management.</p>
+          <ul>
+            <li>Custom creator selection</li>
+            <li>Dedicated campaign manager</li>
+            <li>Premium reporting &amp; optimization</li>
+            <li>Priority support and custom strategy</li>
+          </ul>
+        </button>
+      </div>
+      <form class="form-grid" id="planForm" data-form="brand">
+        <div class="field field--full">
+          <label for="pfBrand">Brand name <span class="req">*</span></label>
+          <input id="pfBrand" type="text" name="brand" required placeholder="e.g. Acme Studio">
+        </div>
+        <div class="field">
+          <label for="pfContact">Contact person <span class="req">*</span></label>
+          <input id="pfContact" type="text" name="contact" required>
+        </div>
+        <div class="field">
+          <label for="pfEmail">Email <span class="req">*</span></label>
+          <input id="pfEmail" type="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="pfPhone">Number <span class="req">*</span></label>
+          <input id="pfPhone" type="tel" name="phone" required>
+        </div>
+        <div class="field">
+          <label for="preferredPlan">Preferred plan <span class="req">*</span></label>
+          <select id="preferredPlan" name="plan" required>
+            <option value="Nexus Core">Nexus Core</option>
+            <option value="Nexus Growth">Nexus Growth</option>
+            <option value="Nexus Elite">Nexus Elite</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="pfBudget">Budget <span class="req">*</span></label>
+          <input id="pfBudget" type="text" name="budget" required placeholder="e.g. ₹50,000">
+        </div>
+        <div class="field field--full">
+          <label for="pfCity">City <span class="req">*</span></label>
+          <input id="pfCity" type="text" name="city" required>
+        </div>
+        <div class="form-row field--full">
+          <button class="btn btn--primary btn--lg" type="submit">Submit Enquiry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Join network modal -->
+  <div class="modal" id="joinModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+    <div class="modal-overlay"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" aria-label="Close" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <h3 class="modal-title" id="joinModalTitle">Join the network</h3>
+      <p class="modal-sub">Connect with us on your favourite platform, then share your profile below.</p>
+      <div class="modal-tabs">
+        <a class="plan-tab" data-platform="WhatsApp" href="https://wa.me/qr/TUWZJ2GF5RP5M1" target="_blank" rel="noreferrer">
+          <h4>WhatsApp</h4>
+          <p>Join us on WhatsApp</p>
+        </a>
+        <a class="plan-tab" data-platform="Instagram" href="https://www.instagram.com/catalyxtnexus?igsh=eTVvZHJoc3d6aW43&utm_source=qr" target="_blank" rel="noreferrer">
+          <h4>Instagram</h4>
+          <p>Follow @catalyxtnexus</p>
+        </a>
+        <a class="plan-tab" data-platform="LinkedIn" href="https://www.linkedin.com/in/catalyxt-nexus-6a18a8422?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noreferrer">
+          <h4>LinkedIn</h4>
+          <p>Follow us on LinkedIn</p>
+        </a>
+      </div>
+      <form class="form-grid" id="joinForm" data-form="creator">
+        <div class="field field--full">
+          <label for="jfName">Name <span class="req">*</span></label>
+          <input id="jfName" type="text" name="name" required>
+        </div>
+        <div class="field">
+          <label for="jfCity">City <span class="req">*</span></label>
+          <input id="jfCity" type="text" name="city" required>
+        </div>
+        <div class="field">
+          <label for="jfEmail">Email <span class="req">*</span></label>
+          <input id="jfEmail" type="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="jfPhone">Number <span class="req">*</span></label>
+          <input id="jfPhone" type="tel" name="phone" required>
+        </div>
+        <div class="field">
+          <label for="jfInsta">Insta link <span class="req">*</span></label>
+          <input id="jfInsta" type="url" name="insta_link" required placeholder="https://instagram.com/yourhandle">
+        </div>
+        <div class="field">
+          <label for="jfFollowers">Follower count <span class="req">*</span></label>
+          <input id="jfFollowers" type="text" name="follower_count" required placeholder="e.g. 10k">
+        </div>
+        <div class="field">
+          <label for="jfNiche">Niche <span class="req">*</span></label>
+          <input id="jfNiche" type="text" name="niche" required placeholder="e.g. Beauty, Travel, Tech">
+        </div>
+        <div class="field">
+          <label for="jfOther">Other platforms</label>
+          <input id="jfOther" type="text" name="other_platforms" placeholder="YouTube, LinkedIn, etc. (optional)">
+        </div>
+        <div class="field field--full">
+          <label for="jfMsg">About you</label>
+          <textarea id="jfMsg" name="message" rows="4" placeholder="Tell us a bit about your content and what you're looking for."></textarea>
+        </div>
+        <input type="hidden" name="platform" id="joinPlatform">
+        <div class="form-row field--full">
+          <button class="btn btn--primary btn--lg" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Catalyxt Nexus — Home">
+            <img class="brand-mark" src="assets/img/logo.jpeg" alt="Catalyxt Nexus logo" width="30" height="30">
+            <span class="brand-name">Catalyxt <em>Nexus</em></span>
+          </a>
+          <p>A creator partnership network connecting brands with carefully matched creators for authentic, high-impact campaigns.</p>
+          <div class="footer-social">
+            <a class="social-icon" href="mailto:catalyxtnexus@gmail.com" aria-label="Email Catalyxt Nexus"><img src="assets/img/Gmail.jpeg" alt="Gmail" width="40" height="40"></a>
+            <a class="social-icon" href="https://instagram.com/catalyxtnexus" target="_blank" rel="noreferrer" aria-label="Instagram"><img src="assets/img/Insta.jpeg" alt="Instagram" width="40" height="40"></a>
+            <a class="social-icon" href="https://wa.me/qr/TUWZJ2GF5RP5M1" target="_blank" rel="noreferrer" aria-label="WhatsApp"><img src="assets/img/whatsapp.jpeg" alt="WhatsApp" width="40" height="40"></a>
+            <a class="social-icon" href="https://www.linkedin.com/in/catalyxt-nexus-6a18a8422" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 112.5 6a2.5 2.5 0 012.48-2.5zM3 8h4v13H3zM9 8h3.8v1.8h.1c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6v7.3h-4v-6.5c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H9z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="plans.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Network</h4>
+          <ul>
+            <li><a href="for-brands.html">For Brands</a></li>
+            <li><a href="for-creators.html">For Creators</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <a href="mailto:catalyxtnexus@gmail.com">catalyxtnexus@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11a7 7 0 10-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>PAN India network</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span>Replies within a day</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Catalyxt Nexus. All rights reserved.</p>
+        <p class="tagline">Connecting Brands. Empowering Creators.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/forms.js"></script>
+</body>
 </html>

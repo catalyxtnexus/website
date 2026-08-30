@@ -1,0 +1,112 @@
+﻿<section class="page-hero">
+      <div class="container">
+        <span class="eyebrow page-hero__eyebrow" data-reveal>Plans &amp; pricing</span>
+        <h1 data-reveal>Flexible plans, <em class="accent-serif">honest scope</em>.</h1>
+        <p class="page-hero__lead" data-reveal>Three plans for every stage of brand growth. Select a plan, then tell us about your brand &mdash; we'll shape the final scope together.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="pricing" data-reveal-group>
+          <div class="price-card" data-reveal data-plan="Nexus Core" data-plan-select="pricingPlan">
+            <h3 class="price-card__name">Nexus Core</h3>
+            <p class="price-card__capacity">For small businesses and startups testing influencer marketing.</p>
+            <ul class="price-card__features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Limited creator outreach</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Budget-friendly</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Perfect for first campaigns</li>
+            </ul>
+            <button type="button" class="btn btn--ghost">Choose Core</button>
+          </div>
+          <div class="price-card is-featured is-selected" data-reveal data-plan="Nexus Growth" data-plan-select="pricingPlan">
+            <span class="price-card__tag">Most popular</span>
+            <h3 class="price-card__name">Nexus Growth</h3>
+            <p class="price-card__capacity">For brands looking to scale awareness and sales.</p>
+            <ul class="price-card__features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Larger creator network</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Campaign strategy &amp; management</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Performance-focused execution</li>
+            </ul>
+            <button type="button" class="btn btn--light">Choose Growth</button>
+          </div>
+          <div class="price-card" data-reveal data-plan="Nexus Elite" data-plan-select="pricingPlan">
+            <h3 class="price-card__name">Nexus Elite</h3>
+            <p class="price-card__capacity">For established brands that want end-to-end campaign management.</p>
+            <ul class="price-card__features">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Custom creator selection</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Dedicated campaign manager</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Premium reporting &amp; optimization</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l5 5L19.5 6.5"/></svg>Priority support &amp; custom strategy</li>
+            </ul>
+            <button type="button" class="btn btn--ghost">Choose Elite</button>
+          </div>
+        </div>
+
+        <form class="pricing-form form-grid" id="pricingForm" data-form="brand" data-reveal>
+          <div class="pricing-form__head field--full">
+            <h3>Send your brand enquiry</h3>
+            <span class="sel-plan">Selected plan: <strong id="planLabel">Nexus Growth</strong></span>
+          </div>
+          <div class="field field--full">
+            <label for="prBrand">Brand name <span class="req">*</span></label>
+            <input id="prBrand" type="text" name="brand" required placeholder="e.g. Acme Studio">
+          </div>
+          <div class="field">
+            <label for="prContact">Contact person <span class="req">*</span></label>
+            <input id="prContact" type="text" name="contact" required>
+          </div>
+          <div class="field">
+            <label for="prEmail">Email <span class="req">*</span></label>
+            <input id="prEmail" type="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="prPhone">Number <span class="req">*</span></label>
+            <input id="prPhone" type="tel" name="phone" required>
+          </div>
+          <div class="field">
+            <label for="pricingPlan">Preferred plan <span class="req">*</span></label>
+            <select id="pricingPlan" name="plan" required>
+              <option value="Nexus Core">Nexus Core</option>
+              <option value="Nexus Growth" selected>Nexus Growth</option>
+              <option value="Nexus Elite">Nexus Elite</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="prBudget">Budget <span class="req">*</span></label>
+            <input id="prBudget" type="text" name="budget" required placeholder="e.g. â‚¹50,000">
+          </div>
+          <div class="field field--full">
+            <label for="prCity">City <span class="req">*</span></label>
+            <input id="prCity" type="text" name="city" required>
+          </div>
+          <div class="form-row field--full">
+            <button class="btn btn--primary btn--lg" type="submit">Submit Enquiry</button>
+            <span class="form-note">Prefer to talk first? <a href="contact.html" style="color:var(--accent);font-weight:600">Contact us</a> instead.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section--alt section--tight">
+      <div class="container">
+        <div class="section-head section-head--center" data-reveal>
+          <span class="eyebrow">Good to know</span>
+          <h2>A few things worth <em class="accent-serif">noting</em>.</h2>
+        </div>
+        <div class="grid grid--3" data-reveal-group>
+          <div class="feature-card" data-reveal>
+            <h3>Customised scope</h3>
+            <p>Plans are a starting point. Budgets, timelines and scale are shaped around your actual goals during consultation.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <h3>No hidden numbers</h3>
+            <p>You'll know exactly what's included before anything begins &mdash; clear scopes, honest timelines and real reporting.</p>
+          </div>
+          <div class="feature-card" data-reveal>
+            <h3>Start small</h3>
+            <p>Not sure about a full plan? Small businesses and first-time campaigns are welcome at any level.</p>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,214 @@
+</main>
+
+  <!-- Plans modal -->
+  <div class="modal" id="plansModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="plansModalTitle">
+    <div class="modal-overlay"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" aria-label="Close" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <h3 class="modal-title" id="plansModalTitle">Choose a plan</h3>
+      <p class="modal-sub">Pick the plan that fits your goals, then tell us a little about your brand.</p>
+      <div class="modal-tabs">
+        <button type="button" class="plan-tab" data-plan="Nexus Core" data-plan-select="preferredPlan">
+          <h4>Nexus Core</h4>
+          <p>For small businesses and startups testing influencer marketing.</p>
+          <ul>
+            <li>Limited creator outreach</li>
+            <li>Budget-friendly</li>
+            <li>Perfect for first campaigns</li>
+          </ul>
+        </button>
+        <button type="button" class="plan-tab" data-plan="Nexus Growth" data-plan-select="preferredPlan">
+          <h4>Nexus Growth</h4>
+          <p>For brands looking to scale awareness and sales.</p>
+          <ul>
+            <li>Larger creator network</li>
+            <li>Campaign strategy &amp; management</li>
+            <li>Performance-focused execution</li>
+          </ul>
+        </button>
+        <button type="button" class="plan-tab" data-plan="Nexus Elite" data-plan-select="preferredPlan">
+          <h4>Nexus Elite</h4>
+          <p>For established brands that want end-to-end campaign management.</p>
+          <ul>
+            <li>Custom creator selection</li>
+            <li>Dedicated campaign manager</li>
+            <li>Premium reporting &amp; optimization</li>
+            <li>Priority support and custom strategy</li>
+          </ul>
+        </button>
+      </div>
+      <form class="form-grid" id="planForm" data-form="brand">
+        <div class="field field--full">
+          <label for="pfBrand">Brand name <span class="req">*</span></label>
+          <input id="pfBrand" type="text" name="brand" required placeholder="e.g. Acme Studio">
+        </div>
+        <div class="field">
+          <label for="pfContact">Contact person <span class="req">*</span></label>
+          <input id="pfContact" type="text" name="contact" required>
+        </div>
+        <div class="field">
+          <label for="pfEmail">Email <span class="req">*</span></label>
+          <input id="pfEmail" type="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="pfPhone">Number <span class="req">*</span></label>
+          <input id="pfPhone" type="tel" name="phone" required>
+        </div>
+        <div class="field">
+          <label for="preferredPlan">Preferred plan <span class="req">*</span></label>
+          <select id="preferredPlan" name="plan" required>
+            <option value="Nexus Core">Nexus Core</option>
+            <option value="Nexus Growth">Nexus Growth</option>
+            <option value="Nexus Elite">Nexus Elite</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="pfBudget">Budget <span class="req">*</span></label>
+          <input id="pfBudget" type="text" name="budget" required placeholder="e.g. ₹50,000">
+        </div>
+        <div class="field field--full">
+          <label for="pfCity">City <span class="req">*</span></label>
+          <input id="pfCity" type="text" name="city" required>
+        </div>
+        <div class="form-row field--full">
+          <button class="btn btn--primary btn--lg" type="submit">Submit Enquiry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Join network modal -->
+  <div class="modal" id="joinModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="joinModalTitle">
+    <div class="modal-overlay"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" aria-label="Close" type="button"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <h3 class="modal-title" id="joinModalTitle">Join the network</h3>
+      <p class="modal-sub">Connect with us on your favourite platform, then share your profile below.</p>
+      <div class="modal-tabs">
+        <a class="plan-tab" data-platform="WhatsApp" href="https://wa.me/qr/TUWZJ2GF5RP5M1" target="_blank" rel="noreferrer">
+          <h4>WhatsApp</h4>
+          <p>Join us on WhatsApp</p>
+        </a>
+        <a class="plan-tab" data-platform="Instagram" href="https://www.instagram.com/catalyxtnexus?igsh=eTVvZHJoc3d6aW43&utm_source=qr" target="_blank" rel="noreferrer">
+          <h4>Instagram</h4>
+          <p>Follow @catalyxtnexus</p>
+        </a>
+        <a class="plan-tab" data-platform="LinkedIn" href="https://www.linkedin.com/in/catalyxt-nexus-6a18a8422?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noreferrer">
+          <h4>LinkedIn</h4>
+          <p>Follow us on LinkedIn</p>
+        </a>
+      </div>
+      <form class="form-grid" id="joinForm" data-form="creator">
+        <div class="field field--full">
+          <label for="jfName">Name <span class="req">*</span></label>
+          <input id="jfName" type="text" name="name" required>
+        </div>
+        <div class="field">
+          <label for="jfCity">City <span class="req">*</span></label>
+          <input id="jfCity" type="text" name="city" required>
+        </div>
+        <div class="field">
+          <label for="jfEmail">Email <span class="req">*</span></label>
+          <input id="jfEmail" type="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="jfPhone">Number <span class="req">*</span></label>
+          <input id="jfPhone" type="tel" name="phone" required>
+        </div>
+        <div class="field">
+          <label for="jfInsta">Insta link <span class="req">*</span></label>
+          <input id="jfInsta" type="url" name="insta_link" required placeholder="https://instagram.com/yourhandle">
+        </div>
+        <div class="field">
+          <label for="jfFollowers">Follower count <span class="req">*</span></label>
+          <input id="jfFollowers" type="text" name="follower_count" required placeholder="e.g. 10k">
+        </div>
+        <div class="field">
+          <label for="jfNiche">Niche <span class="req">*</span></label>
+          <input id="jfNiche" type="text" name="niche" required placeholder="e.g. Beauty, Travel, Tech">
+        </div>
+        <div class="field">
+          <label for="jfOther">Other platforms</label>
+          <input id="jfOther" type="text" name="other_platforms" placeholder="YouTube, LinkedIn, etc. (optional)">
+        </div>
+        <div class="field field--full">
+          <label for="jfMsg">About you</label>
+          <textarea id="jfMsg" name="message" rows="4" placeholder="Tell us a bit about your content and what you're looking for."></textarea>
+        </div>
+        <input type="hidden" name="platform" id="joinPlatform">
+        <div class="form-row field--full">
+          <button class="btn btn--primary btn--lg" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Catalyxt Nexus — Home">
+            <img class="brand-mark" src="assets/img/logo.jpeg" alt="Catalyxt Nexus logo" width="30" height="30">
+            <span class="brand-name">Catalyxt <em>Nexus</em></span>
+          </a>
+          <p>A creator partnership network connecting brands with carefully matched creators for authentic, high-impact campaigns.</p>
+          <div class="footer-social">
+            <a class="social-icon" href="mailto:catalyxtnexus@gmail.com" aria-label="Email Catalyxt Nexus"><img src="assets/img/Gmail.jpeg" alt="Gmail" width="40" height="40"></a>
+            <a class="social-icon" href="https://instagram.com/catalyxtnexus" target="_blank" rel="noreferrer" aria-label="Instagram"><img src="assets/img/Insta.jpeg" alt="Instagram" width="40" height="40"></a>
+            <a class="social-icon" href="https://wa.me/qr/TUWZJ2GF5RP5M1" target="_blank" rel="noreferrer" aria-label="WhatsApp"><img src="assets/img/whatsapp.jpeg" alt="WhatsApp" width="40" height="40"></a>
+            <a class="social-icon" href="https://www.linkedin.com/in/catalyxt-nexus-6a18a8422" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 112.5 6a2.5 2.5 0 012.48-2.5zM3 8h4v13H3zM9 8h3.8v1.8h.1c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6v7.3h-4v-6.5c0-1.6 0-3.6-2.2-3.6s-2.5 1.7-2.5 3.5V21H9z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="plans.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Network</h4>
+          <ul>
+            <li><a href="for-brands.html">For Brands</a></li>
+            <li><a href="for-creators.html">For Creators</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in touch</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              <a href="mailto:catalyxtnexus@gmail.com">catalyxtnexus@gmail.com</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11a7 7 0 10-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span>PAN India network</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+              <span>Replies within a day</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Catalyxt Nexus. All rights reserved.</p>
+        <p class="tagline">Connecting Brands. Empowering Creators.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" type="button">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/forms.js"></script>
+</body>
+</html>
