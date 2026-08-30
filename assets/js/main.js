@@ -25,18 +25,34 @@
   onScroll();
 
   /* Mobile menu */
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('is-open');
+    menuToggle.classList.remove('is-open');
+    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
   if (menuToggle && mobileMenu) {
     menuToggle.addEventListener('click', function () {
       var open = mobileMenu.classList.toggle('is-open');
       menuToggle.classList.toggle('is-open', open);
       menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.classList.toggle('menu-open', open);
     });
     var mmLinks = mobileMenu.querySelectorAll('a,button');
     Array.prototype.forEach.call(mmLinks, function (link) {
-      link.addEventListener('click', function () {
-        mobileMenu.classList.remove('is-open');
-        menuToggle.classList.remove('is-open');
-      });
+      link.addEventListener('click', closeMobileMenu);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1180) closeMobileMenu();
+    });
+    /* Closing any modal trigger (open-plans / open-join) also closes the drawer */
+    document.addEventListener('click', function (e) {
+      var trigger = e.target.closest ? e.target.closest('.open-plans, .open-join') : null;
+      if (trigger) closeMobileMenu();
     });
   }
 
